@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(layout="wide")
 
-def visao():
+def pag_visao():
     df = pd.read_csv(r"DATA\HR_Analytics_Cleaned_Master.csv")
 
     st.title("Visão Geral")
@@ -17,7 +17,7 @@ def visao():
     with col2:
         container = st.container(height=120, border=False)
         with container:
-            st.caption("## Taxa de demissão: ")
+            st.caption("## Taxa de rotatividade: ")
         df_demissao = df.query('Attrition == "Yes"')
         st.write(f"# {round((df_demissao.shape[0] / df.shape[0]), 3) * 100}%")
     with col3:
